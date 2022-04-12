@@ -24,29 +24,24 @@
 # *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
 
 main () {
-  TEXT="${@//[^a-zA-Z]/}"
-  PHRASE=${TEXT,,}
+  phrase="${1//[^a-zA-Z\?]/ }"
+  phrase="${phrase// }"
 
-  IS_PANGRAM="true"
-
-  if [[ $PHRASE != "" ]];
-  then
-    for letter in {a..z};
-    do
-      if [[ "$PHRASE" == *"$letter"* ]];
-      then
-        continue
-      else
-        IS_PANGRAM="false"
-        break
-      fi
-    done
+  if [[ -z $phrase ]]; then
+    echo "Whatever."
+  elif [ $phrase == ${phrase^^} ] && [ $phrase != "?" ]; then
+    if [[ ${phrase: -1} == "?" ]]; then
+      echo "Calm down, I know what I'm doing!"
+    else
+      echo "Whoa, chill out!"
+    fi
   else
-    IS_PANGRAM="false"
+    if [[ ${phrase: -1} == "?" ]]; then
+      echo "Sure."
+    else
+      echo "Whatever."
+    fi
   fi
-
-
-  echo $IS_PANGRAM
 }
 
-main $@
+main "$@"
