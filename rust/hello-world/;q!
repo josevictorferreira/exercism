@@ -1,0 +1,62 @@
+WORKSPACE="$HOME/Workspace"
+
+# General Applications
+alias k=kubectl
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
+
+# Personal
+alias wspc="cd $WORKSPACE"
+alias todo="nvim $WORKSPACE/todo.wiki"
+alias plan="nvim $WORKSPACE/plan.wiki"
+alias zshrc="nvim $HOME/.zshrc"
+alias aliases="nvim $HOME/.aliases.zsh"
+
+# Agrosmart
+alias agro="cd $WORKSPACE/agrosmart"
+alias api="cd $WORKSPACE/agrosmart/agrosmart-api"
+alias field="cd $WORKSPACE/agrosmart/agrosmart-field-notebook"
+
+# Docker Kong
+alias kong="cd $WORKSPACE/docker-kong"
+alias key="cd $WORKSPACE/keycloak"
+
+# Langsta App
+alias lang="cd $WORKSPACE/langsta"
+alias web="cd $WORKSPACE/langsta/langsta-web"
+alias infra="cd $WORKSPACE/langsta/langsta-infra"
+
+# Ticket App
+alias ticket="cd $WORKSPACE/ticket"
+
+# Estoka App
+alias estok="cd $WORKSPACE/nexaas-estoka"
+
+function b64() {
+  echo -n "$1" | base64 -w 0 | xclip -sel clip
+}
+
+# Connects to Node 1 on OCI cluster
+function node1() {
+  cd ~/Workspace/ampernetacle/
+  sudo ssh -i id_rsa ubuntu@144.22.250.215
+}
+
+# Connects to Node 2 on OCI cluster
+function node2() {
+  cd ~/Workspace/ampernetacle/
+  sudo ssh -i id_rsa ubuntu@144.22.164.148
+}
+
+# Connects to Node 3 on OCI cluster
+function node3() {
+  cd ~/Workspace/ampernetacle/
+  sudo ssh -i id_rsa ubuntu@150.230.73.177
+}
+
+# Connects to Node 4 on OCI cluster
+function node4() {
+  cd ~/Workspace/ampernetacle/
+  sudo ssh -i id_rsa ubuntu@152.70.222.171
+}
