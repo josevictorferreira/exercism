@@ -23,21 +23,36 @@
 #
 # *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
 
-main () {
-  phrase="${1//[^a-zA-Z\?]/ }"
-  phrase="${phrase// }"
+# If has letter
+#   If yelling
+#     If question
+#       echo 'Calm down, i know what im doing'
+#     else
+#       echo 'Whoa, chill out!'
+#   else
+#     if question
+#       echo 'Sure'
+#     else
+#       echo 'Fine be that way'
+# else
+#   echo 'Whathever'
 
-  if [[ -z $phrase ]]; then
-    echo "Whatever."
-  elif [ $phrase == ${phrase^^} ] && [ $phrase != "?" ]; then
-    if [[ ${phrase: -1} == "?" ]]; then
+main () {
+  phrase="${1// }"
+
+  if [[ ${phrase: -1} == "?" ]]; then
+    if [[ ! $phrase =~ [a-zA-Z] ]]; then
+      echo "Sure."
+    elif [[ $phrase == ${phrase^^} ]]; then
       echo "Calm down, I know what I'm doing!"
     else
-      echo "Whoa, chill out!"
+      echo "Sure."
     fi
   else
-    if [[ ${phrase: -1} == "?" ]]; then
-      echo "Sure."
+    if [[ ! $phrase =~ [0-9a-zA-Z] ]]; then
+      echo "Fine. Be that way!" 
+    elif [[ $phrase == ${phrase^^} ]] && [[ $phrase =~ [a-zA-Z] ]]; then
+      echo "Whoa, chill out!"
     else
       echo "Whatever."
     fi
