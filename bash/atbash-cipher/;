@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+main () {
+  text=${1//[^a-zA-Z0-9]/}
+  text=${text,,}
+
+  text_size=${#text}
+
+  for ((i=0;i<$text_size;i++)); do
+    char=${text:$i:1}
+
+    if [[ $i%5 -eq 0 ]] && [[ $i -ne 0 ]]
+  done
+}
+
+main "$@"
