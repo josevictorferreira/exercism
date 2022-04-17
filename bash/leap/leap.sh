@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-error_message() {
+error_message () {
   echo "Usage: leap.sh <year>"
   exit 1
 }
