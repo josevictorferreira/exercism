@@ -1,0 +1,16 @@
+#[derive(Debug, PartialEq)]
+pub enum Comparison {
+    Equal,
+    Sublist,
+    Superlist,
+    Unequal,
+}
+
+pub fn sublist<T: PartialEq>(_first_list: &[T], _second_list: &[T]) -> Comparison {
+    match (_first_list.len(), _second_list.len()) {
+        (0, 0) => Comparison::Equal,
+        (0, _) => Comparison::Sublist,
+        (_, 0) => Comparison::Superlist,
+        _ => Comparison::Unequal
+    }
+}
