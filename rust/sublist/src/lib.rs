@@ -1,6 +1,5 @@
 #[derive(Debug, PartialEq)]
-pub enum Comparison {
-    Equal,
+pub enum Comparison { Equal,
     Sublist,
     Superlist,
     Unequal,
